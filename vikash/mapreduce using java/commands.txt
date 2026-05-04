@@ -1,0 +1,3 @@
+hadoop fs -put log.txt /input
+hadoop jar LogDriver.jar LogDriver /input /output
+hadoop fs -cat /output/part-r-00000

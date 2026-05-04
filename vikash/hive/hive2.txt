@@ -1,0 +1,65 @@
+🔹 a) Create, Drop, Alter Database & Table
+CREATE DATABASE flights_info;
+SHOW DATABASES;
+USE flights_info;
+
+-- Create Table
+CREATE TABLE flights (
+flight_id INT,
+flight_date STRING,
+carrier STRING,
+origin STRING,
+destination STRING,
+dep_delay INT,
+arr_delay INT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+-- Drop Table
+DROP TABLE flights;
+
+-- Alter Table
+ALTER TABLE flights ADD COLUMNS (flight_duration INT);
+
+🔹 b) External Table
+CREATE EXTERNAL TABLE external_airports (
+airport_code STRING,
+airport_name STRING,
+city STRING,
+state STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+🔹 c) Load, Insert, Join
+-- Insert
+INSERT INTO flights VALUES
+(1001, '2008-01-01', 'AA', 'JFK', 'LAX', 10, 5);
+
+-- Load Data
+LOAD DATA LOCAL INPATH '/home/pl/Desktop/external_airport.txt'
+INTO TABLE external_airports;
+
+-- Join
+SELECT f.flight_id, a.airport_name
+FROM flights f
+JOIN external_airports a
+ON f.origin = a.airport_code;
+
+🔹 d) Create Index (Correct Table)
+CREATE INDEX idx_flight_origin
+ON TABLE flights (origin)
+AS 'COMPACT'
+WITH DEFERRED REBUILD;
+
+ALTER INDEX idx_flight_origin ON flights REBUILD;
+
+🔹 e) Average Departure Delay Per Day (IMPORTANT)
+SELECT flight_date,
+AVG(dep_delay) AS avg_departure_delay
+FROM flights
+WHERE flight_date LIKE '2008%'
+GROUP BY flight_date;

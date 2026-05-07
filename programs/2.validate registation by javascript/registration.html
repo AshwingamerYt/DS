@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Registration Validation</title>
+
+    <script>
+
+        function validateForm()
+        {
+
+            var fname =
+            document.getElementById("fname").value;
+
+            var lname =
+            document.getElementById("lname").value;
+
+            var password =
+            document.getElementById("pass").value;
+
+            var email =
+            document.getElementById("email").value;
+
+            var mobile =
+            document.getElementById("mobile").value;
+
+            var address =
+            document.getElementById("address").value;
+
+            /* First Name Validation */
+
+            if(fname.length < 6)
+            {
+                alert("First name must be minimum 6 characters");
+                return false;
+            }
+
+            /* Password Validation */
+
+            if(password.length < 6)
+            {
+                alert("Password must be minimum 6 characters");
+                return false;
+            }
+
+            /* Email Validation */
+
+            if(email == "")
+            {
+                alert("Enter valid email");
+                return false;
+            }
+
+            /* Mobile Validation */
+
+            if(mobile.length != 10)
+            {
+                alert("Mobile number must be 10 digits");
+                return false;
+            }
+
+            /* Last Name Validation */
+
+            if(lname == "")
+            {
+                alert("Last name cannot be empty");
+                return false;
+            }
+
+            /* Address Validation */
+
+            if(address == "")
+            {
+                alert("Address cannot be empty");
+                return false;
+            }
+
+            alert("Registration Successful");
+
+            return true;
+        }
+
+    </script>
+
+</head>
+
+<body align="center">
+
+    <h1>Registration Form</h1>
+
+    <form onsubmit="return validateForm()">
+
+        First Name:
+        <br>
+
+        <input type="text" id="fname">
+
+        <br><br>
+
+        Last Name:
+        <br>
+
+        <input type="text" id="lname">
+
+        <br><br>
+
+        Password:
+        <br>
+
+        <input type="password" id="pass">
+
+        <br><br>
+
+        Email:
+        <br>
+
+        <input type="email" id="email">
+
+        <br><br>
+
+        Mobile Number:
+        <br>
+
+        <input type="tel" id="mobile">
+
+        <br><br>
+
+        Address:
+        <br>
+
+        <textarea id="address"></textarea>
+
+        <br><br>
+
+        <input type="submit" value="Register">
+
+    </form>
+
+</body>
+</html>

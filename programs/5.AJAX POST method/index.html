@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body align="center">
+
+    <h1>Registration Form</h1>
+
+    <form onsubmit="saveData()">
+
+        Name:
+        <br>
+
+        <input type="text" id="name">
+
+        <br><br>
+
+        Email:
+        <br>
+
+        <input type="email" id="email">
+
+        <br><br>
+
+        <input type="submit" value="Save">
+
+    </form>
+
+    <script>
+
+        function saveData()
+        {
+            var name =
+            document.getElementById("name").value;
+
+            var email =
+            document.getElementById("email").value;
+
+            /* Store data */
+
+            localStorage.setItem("name", name);
+            localStorage.setItem("email", email);
+
+            alert("Data Saved");
+
+            window.location="data.html";
+        }
+
+    </script>
+
+</body>
+</html>

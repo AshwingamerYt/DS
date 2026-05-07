@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stored Data</title>
+</head>
+
+<body align="center">
+
+    <h1>Saved User Data</h1>
+
+    <h3 id="result"></h3>
+
+    <script>
+
+        var name =
+        localStorage.getItem("name");
+
+        var email =
+        localStorage.getItem("email");
+
+        document.getElementById("result").innerHTML =
+        "Name: " + name + "<br>Email: " + email;
+
+    </script>
+
+</body>
+</html>

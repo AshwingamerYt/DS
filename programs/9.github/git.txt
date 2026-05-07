@@ -1,0 +1,31 @@
+git config --global user.email "prasadjsomani2005@gmail.com"
+
+git config --global user.name "Prasad Somani"
+
+
+git init
+
+
+git add .
+
+  
+git commit -m "First commit on exam machine"    
+
+
+git branch -M main
+
+
+
+git remote -v
+
+
+git remote set-url origin https://github.com/psomani2109/wad_prac2.git
+
+
+
+
+git remote -v
+
+
+
+git push -u origin main
